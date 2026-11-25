@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 98%;
+    --foreground: 224 30% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 30% 12%;
+    --primary: 243 75% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 16% 94%;
+    --secondary-foreground: 224 30% 16%;
+    --muted: 220 16% 95%;
+    --muted-foreground: 220 10% 38%;
+    --accent: 243 80% 96%;
+    --accent-foreground: 243 60% 35%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 152 65% 28%;
+    --warning: 28 92% 29%;
+    --border: 220 14% 89%;
+    --input: 220 14% 80%;
+    --ring: 243 75% 55%;
+    --tp1: 243 75% 55%;
+    --tp2: 175 84% 21%;
+    --tp3: 201 96% 29%;
+    --tp4: 21 92% 33%;
+    --tp5: 281 70% 48%;
+  }
+  .dark {
+    --background: 224 24% 8%;
+    --foreground: 220 20% 94%;
+    --card: 224 22% 11%;
+    --card-foreground: 220 20% 94%;
+    --primary: 240 90% 74%;
+    --primary-foreground: 224 40% 10%;
+    --secondary: 224 16% 17%;
+    --secondary-foreground: 220 20% 92%;
+    --muted: 224 16% 15%;
+    --muted-foreground: 220 12% 68%;
+    --accent: 243 40% 20%;
+    --accent-foreground: 240 90% 86%;
+    --destructive: 0 80% 68%;
+    --destructive-foreground: 224 40% 10%;
+    --success: 152 55% 55%;
+    --warning: 35 90% 60%;
+    --border: 224 14% 21%;
+    --input: 224 14% 32%;
+    --ring: 240 90% 74%;
+    --tp1: 240 90% 76%;
+    --tp2: 172 60% 52%;
+    --tp3: 199 90% 62%;
+    --tp4: 27 95% 62%;
+    --tp5: 280 85% 76%;
+  }
+  * { @apply border-border; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-background text-foreground antialiased; font-feature-settings: 'cv11', 'ss01'; }
+  h1, h2, h3, h4 { text-wrap: balance; }
+  :focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 2px; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+}
+
+@layer components {
+  .prose-cfc p { @apply leading-7 text-[15px]; }
+  .prose-cfc p + p { @apply mt-3; }
+  .link { @apply text-primary underline underline-offset-2 hover:no-underline; }
+  .sr-only-focusable:not(:focus) { @apply sr-only; }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+  .print-card { border: 1px solid #bbb !important; box-shadow: none !important; break-inside: avoid; }
+  a { color: inherit !important; text-decoration: none !important; }
+}
